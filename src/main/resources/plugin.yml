@@ -1,0 +1,7 @@
+name: Lobby Piano
+version: '${project.version}'
+main: net.novauniverse.LobbyPiano.LobbyPiano
+api-version: 1.18
+authors: [ DevGoldy ]
+description: Piano plugin OwO
+website: novauniverse.net
