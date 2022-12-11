@@ -1,0 +1,13 @@
+PianoPlayArea:
+  Corner1:
+    x: -159
+    y: 64
+    z: -129
+  Corner2:
+    x: -172
+    y: 64
+    z: -131
+
+DirectionWhichColouredNoteIsRelativeToBlackNote: "WEST"
+
+PianoVolume: 0.2
