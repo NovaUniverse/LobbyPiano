@@ -1,5 +1,7 @@
 package net.novauniverse.LobbyPiano;
 
+import jdk.jfr.internal.LogLevel;
+import net.zeeraa.novacore.commons.log.Log;
 import net.zeeraa.novacore.spigot.abstraction.VersionIndependentUtils;
 import net.zeeraa.novacore.spigot.abstraction.enums.VersionIndependentSound;
 import net.zeeraa.novacore.spigot.utils.VectorArea;
@@ -35,6 +37,8 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
         Location moveToEventLocation = event.getTo().clone().add(0, 0.5, 0);
 
         if (pianoPlayArea.isInsideBlock(moveToEventLocation.toVector())) {
+            Log.trace("you are inside the uwu zone.");
+
             Location moveFromEventLocation = event.getFrom().clone().add(0, 0.5, 0);
 
             World theWorldUwU = moveFromEventLocation.getWorld();
@@ -45,6 +49,7 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
             DyeColor dyeColourForBlockBelow = getDyeColour(currentBlockBelowPlayer);
 
             if (dyeColourForBlockBelow == getDyeColour(lastBlockBelowPlayer) || dyeColourForBlockBelow == null) {
+                Log.trace("same or not coloured");
                 return;
             }
 
