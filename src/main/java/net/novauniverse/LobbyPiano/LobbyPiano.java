@@ -88,7 +88,7 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
         DyeColor dyeColour = null;
 
         for(DyeColor colour : DyeColor.values()) {
-            if (block.getType().toString().contains(colour.name())) {
+            if (block.getType().toString().startsWith(colour.name())) {
                 dyeColour = colour;
             }
         }
