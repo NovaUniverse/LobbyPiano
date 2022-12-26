@@ -47,14 +47,18 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
             Block lastBlockBelowPlayer = moveFromLocation.getBlock().getRelative(BlockFace.DOWN);
             Block currentBlockBelowPlayer = moveToLocation.getBlock().getRelative(BlockFace.DOWN);
 
-            DyeColor dyeColourForBlockBelow = getDyeColour(currentBlockBelowPlayer);
+            DyeColor currentBlockDyeColour = getDyeColour(currentBlockBelowPlayer);
 
-            if (dyeColourForBlockBelow == getDyeColour(lastBlockBelowPlayer) || dyeColourForBlockBelow == null) {
+            if (currentBlockDyeColour == DyeColor.BLACK) {
+                currentBlockDyeColour = getDyeColour(currentBlockBelowPlayer.getRelative(DWCNIRTBN));
+            }
+
+            if (currentBlockDyeColour == getDyeColour(lastBlockBelowPlayer) || currentBlockDyeColour == null) {
                 Log.trace("same or not coloured");
                 return;
             }
 
-            switch(getDyeColour(currentBlockBelowPlayer)) {
+            switch(currentBlockDyeColour) {
                 case LIGHT_BLUE:
                     playNote(theWorldUwU, currentBlockBelowPlayer, 0.707107F);
                     break;
@@ -79,9 +83,8 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
                 case BLUE:
                     playNote(theWorldUwU, currentBlockBelowPlayer, 1.414214F);
 
-                case BLACK:
-                    playBlackNotes(theWorldUwU, currentBlockBelowPlayer);
-
+                default:
+                    break;
             }
         }
     }
