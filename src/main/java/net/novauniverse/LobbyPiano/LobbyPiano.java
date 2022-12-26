@@ -30,7 +30,7 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
 
     @EventHandler
     public void PlayerOnKeyEvent(PlayerMoveEvent event) {
-        if (event.getTo().getX() == event.getFrom().getX() || event.getTo().getZ() == event.getFrom().getZ()) {
+        if (event.getTo().getBlockX() == event.getFrom().getBlockX() && event.getTo().getBlockZ() == event.getFrom().getBlockZ()) {
             return;
         }
 
