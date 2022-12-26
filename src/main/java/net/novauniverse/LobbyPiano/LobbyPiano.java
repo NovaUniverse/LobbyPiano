@@ -34,17 +34,17 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
             return;
         }
 
-        Location moveToEventLocation = event.getTo().clone().add(0, 0.5, 0);
+        Location moveToLocation = event.getTo().clone().add(0, 0.5, 0);
 
-        if (pianoPlayArea.isInsideBlock(moveToEventLocation.toVector())) {
+        if (pianoPlayArea.isInsideBlock(moveToLocation.clone().add(0, -1, 0).toVector())) {
             Log.trace("you are inside the uwu zone.");
 
-            Location moveFromEventLocation = event.getFrom().clone().add(0, 0.5, 0);
+            Location moveFromLocation = event.getFrom().clone().add(0, 0.5, 0);
 
-            World theWorldUwU = moveFromEventLocation.getWorld();
+            World theWorldUwU = moveFromLocation.getWorld();
 
-            Block lastBlockBelowPlayer = moveFromEventLocation.getBlock().getRelative(BlockFace.DOWN);
-            Block currentBlockBelowPlayer = moveToEventLocation.getBlock().getRelative(BlockFace.DOWN);
+            Block lastBlockBelowPlayer = moveFromLocation.getBlock().getRelative(BlockFace.DOWN);
+            Block currentBlockBelowPlayer = moveToLocation.getBlock().getRelative(BlockFace.DOWN);
 
             DyeColor dyeColourForBlockBelow = getDyeColour(currentBlockBelowPlayer);
 
