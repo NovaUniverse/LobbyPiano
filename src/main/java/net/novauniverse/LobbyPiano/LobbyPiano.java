@@ -99,39 +99,6 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
         world.playSound(blockBelowPlayer.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, pianoVolume, pitch);
     }
 
-    private void playBlackNote(World world, Block block, float pitch) {
-        world.playSound(block.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP, pianoVolume, pitch);
-    }
-
-    private void playBlackNotes(World world, Block blockBelowPlayer) {
-
-        switch (getDyeColour(blockBelowPlayer.getRelative(DWCNIRTBN))) {
-            case LIGHT_BLUE:
-                playNote(world, blockBelowPlayer, 0.707107F);
-                break;
-            case CYAN:
-                playNote(world, blockBelowPlayer, 0.793701F);
-                break;
-            case PURPLE:
-                playNote(world, blockBelowPlayer, 0.890899F);
-                break;
-            case ORANGE:
-                playNote(world, blockBelowPlayer, 0.945874F);
-                break;
-            case RED:
-                playNote(world, blockBelowPlayer, 1.059463F);
-                break;
-            case PINK:
-                playNote(world, blockBelowPlayer, 1.189207F);
-                break;
-            case MAGENTA:
-                playNote(world, blockBelowPlayer, 1.334840F);
-                break;
-            case BLUE:
-                playNote(world, blockBelowPlayer, 1.414214F);
-        }
-    }
-
     @Override
     public void onEnable() {
         // Plugin startup logic.
