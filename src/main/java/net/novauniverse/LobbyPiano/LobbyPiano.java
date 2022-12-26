@@ -39,12 +39,17 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
             Block currentBlockBelowPlayer = moveToLocation.getBlock().getRelative(BlockFace.DOWN);
 
             DyeColor currentBlockDyeColour = getDyeColour(currentBlockBelowPlayer);
+            DyeColor lastBlockDyeColour = getDyeColour(lastBlockBelowPlayer);
 
             if (currentBlockDyeColour == DyeColor.BLACK) {
                 currentBlockDyeColour = getDyeColour(currentBlockBelowPlayer.getRelative(DWCNIRTBN));
             }
+            
+            if (lastBlockDyeColour == DyeColor.BLACK) {
+                lastBlockDyeColour = getDyeColour(lastBlockBelowPlayer.getRelative(DWCNIRTBN));
+            }
 
-            if (currentBlockDyeColour == getDyeColour(lastBlockBelowPlayer) || currentBlockDyeColour == null) {
+            if (currentBlockDyeColour == lastBlockDyeColour || currentBlockDyeColour == null) {
                 return;
             }
 
