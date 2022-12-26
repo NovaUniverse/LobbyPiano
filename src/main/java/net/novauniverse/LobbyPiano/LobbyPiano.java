@@ -1,15 +1,9 @@
 package net.novauniverse.LobbyPiano;
-
-import jdk.jfr.internal.LogLevel;
-import net.zeeraa.novacore.commons.log.Log;
-import net.zeeraa.novacore.spigot.abstraction.VersionIndependentUtils;
-import net.zeeraa.novacore.spigot.abstraction.enums.VersionIndependentSound;
 import net.zeeraa.novacore.spigot.utils.VectorArea;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.MemorySection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,15 +25,12 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
     @EventHandler
     public void PlayerOnKeyEvent(PlayerMoveEvent event) {
         if (event.getTo().toVector().equals(event.getFrom().toVector())) {
-            Log.trace("uwu");
             return;
         }
 
         Location moveToLocation = event.getTo().clone().add(0, 0.5, 0);
 
         if (pianoPlayArea.isInsideBlock(moveToLocation.clone().add(0, -1, 0).toVector())) {
-            Log.trace("you are inside the uwu zone.");
-
             Location moveFromLocation = event.getFrom().clone().add(0, 0.5, 0);
 
             World theWorldUwU = moveFromLocation.getWorld();
@@ -54,7 +45,6 @@ public final class LobbyPiano extends JavaPlugin implements Listener {
             }
 
             if (currentBlockDyeColour == getDyeColour(lastBlockBelowPlayer) || currentBlockDyeColour == null) {
-                Log.trace("same or not coloured");
                 return;
             }
 
